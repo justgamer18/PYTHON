@@ -1,2 +1,2 @@
-#gamplay
+# gameplay
 ![flappydot gameplay](flappydot.gif)
