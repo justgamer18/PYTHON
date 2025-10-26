@@ -1,0 +1,15 @@
+import pygame
+white=pygame.Color('white')
+black=pygame.Color('black')
+magenta=pygame.Color('magenta')
+cyan=pygame.Color('cyan')
+aqua=pygame.Color('aqua')
+lime=pygame.Color('lime')
+deeppink=pygame.Color('deeppink')
+hotpink=pygame.Color('hotpink')
+red=pygame.Color('red')
+green=pygame.Color('green')
+blue=pygame.Color('blue')
+orange=pygame.Color('orange')
+lightskyblue=pygame.Color('lightskyblue')
+neon=[white,magenta,cyan,aqua,lime,deeppink,hotpink,red,green,blue,orange,lightskyblue]
