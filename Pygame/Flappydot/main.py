@@ -9,7 +9,7 @@ info=pygame.display.Info()
 clock=pygame.time.Clock()
 width=info.current_w
 height=info.current_h
-screen=pygame.display.set_mode((width,height))
+screen=pygame.display.set_mode((width, height))
 font=pygame.font.Font(None, width//10)
 spawn=pygame.USEREVENT+1
 restart=pygame.USEREVENT+2
@@ -17,7 +17,6 @@ pygame.display.set_caption(';')
 def refresh():
 	return Player(width,height,colour),Spawner(width,height,colour),Menu(colour,width,height,font)
 player,spawner,menu=refresh()
-pygame.time.set_timer(spawn,spawner.spawntime)
 class State(enumerate):
 	start= 0
 	play=1
@@ -48,6 +47,8 @@ while run:
 	if state == State.start:
 		menu.starter(screen)
 	if state==State.play:
+		if not spawner.blocks:
+			pygame.event.post(pygame.event.Event(spawn))
 		player.move(tap)
 		player.draw(screen)
 		spawner.move()
@@ -55,7 +56,7 @@ while run:
 		if spawner.checkcollide(player):
 			pygame.time.set_timer(restart,1500)
 			state=State.out
-			menu.vibrate(100)
+			#menu.vibrate(100)
 	elif state==State.out:
 		if menu.blink():
 			player.draw(screen)

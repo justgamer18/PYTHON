@@ -1,6 +1,6 @@
 import pygame
-from jnius import autoclass
-from android import activity
+#from jnius import autoclass
+#from android import activity
 class Menu:
 	def __init__(self,c,w,h,f):
 		self.white=c.white
@@ -37,18 +37,18 @@ class Menu:
 	def starter(self , surface):
 		if self.blink():
 			surface.blit(self.start , self.startpos)
-	def vibrate(self,duration):
-		activity=autoclass('org.kivy.android.PythonActivity')
-		service=autoclass('android.content.Context')
-		build=autoclass('android.os.Build$VERSION')
-		vibrator=activity.mActivity.getSystemService(service.VIBRATOR_SERVICE)
-		if vibrator.hasVibrator():
-			if build.SDK_INT>=26:
-				vibration=autoclass('android.os.VibrationEffect')
-				effect=vibration.createOneShot(duration,vibration.DEFAULT_AMPLITUDE)
-				vibrator.vibrate(effect)
-			else:
-				vibrator.vibrate(duration)
+	# def vibrate(self,duration):
+	# 	activity=autoclass('org.kivy.android.PythonActivity')
+	# 	service=autoclass('android.content.Context')
+	# 	build=autoclass('android.os.Build$VERSION')
+	# 	vibrator=activity.mActivity.getSystemService(service.VIBRATOR_SERVICE)
+	# 	if vibrator.hasVibrator():
+	# 		if build.SDK_INT>=26:
+	# 			vibration=autoclass('android.os.VibrationEffect')
+	# 			effect=vibration.createOneShot(duration,vibration.DEFAULT_AMPLITUDE)
+	# 			vibrator.vibrate(effect)
+	# 		else:
+	# 			vibrator.vibrate(duration)
 			
 		
 
